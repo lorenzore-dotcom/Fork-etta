@@ -1,6 +1,6 @@
 # Decision Log: Progetto Incidenti Aerei
 
-Questo documento risponde ai requisiti del template `decision-log.md`, ripercorrendo le decisioni architetturali e progettuali prese durante lo sviluppo del modello predittivo sugli incidenti aerei.
+Questo documento ripercorre le decisioni architetturali e progettuali prese durante lo sviluppo del modello predittivo sugli incidenti aerei.
 
 ## 1. Definizione del Target: Classificazione Binaria (`Is_Catastrophic`)
 * **Decisione:** Invece di prevedere il numero esatto di vittime (un problema di regressione), si è scelto di calcolare il tasso di mortalità (`Fatalities / Aboard`) e creare una variabile target binaria chiamata `Is_Catastrophic` (tasso di mortalità $\ge$ 80%).
@@ -27,5 +27,5 @@ Questo documento risponde ai requisiti del template `decision-log.md`, ripercorr
 * **Motivazione:** Il dataset presenta un forte sbilanciamento (3634 incidenti catastrofici contro 1315 contenuti). Senza bilanciare i pesi, il modello tenderebbe a prevedere sempre la classe maggioritaria. Il parametro `pos_weight` penalizza maggiormente gli errori sulla classe minoritaria, forzando la rete a imparare a distinguerla.
 
 ## 7. Strategia di Addestramento: Scheduler e Early Stopping
-* **Decisione:** Implementare l'ottimizzatore `Adam`, affiancato da `ReduceLROnPlateau` (che dimezza il learning rate dopo 2 epoche senza miglioramenti) e da un `Early Stopping` (che interrompe l'addestramento dopo 6 epoche di stallo).
+* **Decisione:** Implementare l'ottimizzatore `Adam`, affiancato da `ReduceLROnPlateau` (che dimezza il learning rate dopo 2 epoche senza miglioramenti) e da un `Early Stopping` (che interrompe l'addestramento dopo 5 epoche di stallo).
 * **Motivazione:** L'utilizzo del solo Adam con un learning rate fisso rischia di far "rimbalzare" la loss senza convergere sul minimo locale. Lo scheduler aiuta a fare *fine-tuning* riducendo il passo man mano che la validazione non migliora. L'Early Stopping evita lo spreco di risorse computazionali e previene l'overfitting, salvando il modello al suo picco ottimale di generalizzazione.
