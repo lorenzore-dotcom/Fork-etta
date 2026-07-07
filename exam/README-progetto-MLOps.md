@@ -24,7 +24,7 @@ Si tratta di un problema di classificazione binaria affrontato tramite un'archit
 Il problema che risolve è fornire un'analisi del rischio più completa, combinando il contesto semantico delle dinamiche di volo (es. "esplosione", "montagna", "nebbia") con i dati numerici e storici.
 
 ## Dati
-Il progetto utilizza un dataset storico sugli incidenti aerei. 
+Il progetto utilizza un dataset storico sugli incidenti aerei (4.967 incidenti dal 1908 al 2019 preso su kaggle). 
 * **Feature selezionate:** `Aboard` (persone a bordo), `Year`, `Month`, `Summary` (testo).
 * **Gestione dati mancanti:** I mesi mancanti sono stati imputati con il valore 6 (giugno, per posizionarsi a metà anno e minimizzare le distorsioni), mentre per gli anni mancanti è stata usata la mediana. 
 * **Pre-processing:** I dati numerici sono stati scalati tramite `StandardScaler`. Il testo è stato pulito dalla punteggiatura, tokenizzato e limitato a un vocabolario custom (scartando parole con frequenza < 2) con sequenze padding/truncating a lunghezza massima di 60 token.
