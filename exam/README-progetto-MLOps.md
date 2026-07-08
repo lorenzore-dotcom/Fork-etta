@@ -46,7 +46,7 @@ In ottica **DevOps + ML (MLOps)**, per garantire l'affidabilità del sistema in 
 ## Rischi, assunzioni e limiti
 * **Assunzioni:** Si assume che imputare il mese a "giugno" non alteri i pattern stagionali e che la sintesi testuale contenga sempre informazioni sufficienti per dedurre la gravità.
 * **Limiti:** L'utilizzo di un vocabolario custom leggero scarta parole rare. Se in futuro un incidente fosse causato da un fattore tecnico altamente specifico e mai visto prima (es. "MCAS failure"), il modello testuale non riconoscerebbe il termine.
-* **Stato del progetto:** Il progetto è attualmente funzionante dall'addestramento all'esportazione dei pesi (`.pth`). 
+* **Stato del progetto:** Il progetto è attualmente quasi funzionante dall'addestramento all'esportazione dei pesi con i due esempi che ho messo funziona però se se ne aggiunge un altro non capisce molto bene(`.pth`). 
 * **Possibili ampliamenti:** L'ampliamento naturale consiste nella creazione di un'interfaccia (es. Streamlit o un frontend web) agganciata al modello per permettere l'inserimento di uno scenario ipotetico da parte di un utente, implementando a pieno le logiche di CI/CD.
 
 ## Ulteriori informazioni
